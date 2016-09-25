@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
+<script>
+
+function adduser()
+{
+
+
+   $.ajax({
+  type: "POST",
+  url: "http://localhost:8080/users",
+  contentType: "application/json",
+  data: JSON.stringify({"name" : "jkjkjkj"}),
+ 
+  headers: {
+	    "Authorization": "Basic " + btoa("momo:momo")
+	  },
+  success: success,
+  error : erreur,
+  
+});
+   
+}     
+
+
+
+function success(data)
+{
+alert("success");
+}
+function erreur(e)
+{
+alert("error" ,e);
+}
+</script>
+<body>
+
+add user 
+<button onclick="adduser()">Click me</button>
+
+
+</body>
+
+
+</html>
